@@ -1,0 +1,405 @@
+/* ========================================
+   BASE RESET & GLOBAL STYLE
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+           NAVBAR
+======================================== */
+#navbar {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  padding: 12px 0;
+  z-index: 1000;
+}
+
+.nav {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 600;
+  color: #7a5af5;
+}
+
+.nav-links a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #7a5af5;
+}
+
+/* ---------- NAVBAR RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+           HOME SECTION
+======================================== */
+.home-section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 120px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #a777e3;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.home-text {
+  max-width: 45%;
+}
+
+.home-text h1 {
+  font-size: 35px;
+  color: #7a5af5;
+  margin-bottom: 10px;
+}
+
+.home-text p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #7a5af5;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: #6747e3;
+}
+
+.portrait-wrap img {
+  width: 370px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ---------- HOME RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .home-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 120px 5%;
+  }
+
+  .home-text {
+    max-width: 100%;
+  }
+
+  .portrait-wrap img {
+    width: 260px;
+    margin-bottom: 20px;
+  }
+}
+
+/* ========================================
+           ABOUT SECTION
+======================================== */
+.about-section {
+  padding: 100px 8%;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #7a5af5;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-img .img-card img {
+  width: 380px;
+  border-radius: 20px;
+}
+
+.about-text {
+  width: 50%;
+  color: #444;
+}
+
+.about-text p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.moving-head {
+  color: #7a5af5;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+/* ---------- ABOUT RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .about-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .about-img .img-card img {
+    width: 260px;
+  }
+}
+
+
+/* ========================================
+             GALLERY SECTION
+======================================== */
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.g-item {
+  width: calc(33.33% - 18px);
+  height: 240px;
+  background: #f0f0f5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.g-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.video-thumb,
+.g-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ---------- Gallery Responsive ---------- */
+@media (max-width: 900px) {
+  .g-item {
+    width: calc(50% - 18px);
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .g-item {
+    width: 100%;
+    height: 220px;
+  }
+}
+
+
+/* ========================================
+          LIGHTBOX IMAGE
+======================================== */
+
+#lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+}
+
+#lightbox img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+#close-lightbox {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  font-size: 45px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* ========================================
+         LIGHTBOX VIDEO
+======================================== */
+
+#videoLightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+#videoLightbox video {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 12px;
+}
+
+#closeVideo {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#closeVideo:hover {
+  transform: scale(1.15);
+  color: #ff8686;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* ========================================
+               CONTACT
+======================================== */
+.contact-blue-section {
+  padding: 100px 8%;
+  text-align: center;
+}
+
+.contact-blue-card {
+  background: #e3d7ff;
+  padding: 40px;
+  border-radius: 20px;
+  width: 380px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contact-blue-buttons a {
+  display: block;
+  background: #7a5af5;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.contact-blue-buttons a:hover {
+  background: #6340df;
+}
+
+
+/* ========================================
+           BACK TO TOP BUTTON
+======================================== */
+#backTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  padding: 10px 15px;
+  background: #7a5af5;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: none;
+}
+
+.fade {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+
+/* ========================================
+                AUDIO
+======================================== */
+.audio-player {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.audio-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #555;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+#playBtn {
+  background: #8fb8ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#playBtn:hover {
+  transform: scale(1.05);
+}
